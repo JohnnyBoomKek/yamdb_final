@@ -21,20 +21,15 @@ services:
     build: .
     restart: always
     command: gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8000 
-    ports:
-      - "8000:8000"
     # "зависит от", 
     depends_on:
       - db
     env_file:
       - ./.env 
 
-  web2:
-  image: nginx
-  volumes:
-   - ./templates:/etc/nginx/templates
-  ports:
-   - "8080:80"
-  environment:
-   - NGINX_HOST=foobar.com
-   - NGINX_PORT=80
+  nginx:
+    build: ./nginx
+    ports:
+      - "8080:8080"
+    depends_on:
+      - web
