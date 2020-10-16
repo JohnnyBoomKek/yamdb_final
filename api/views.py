@@ -44,6 +44,7 @@ class UserViewSet(ModelViewSet):
 class UserView(APIView):
     permission_classes = [IsAdminPermission, ]
     # Переопределяя get_queryset тесты отказываются работать, хотя в postman'e все вроде как нормально
+
     def get(self, request, username):
         user = CustomUser.objects.get(username=username)
         serializer = UserSerializer(user)
@@ -66,6 +67,7 @@ class UserView(APIView):
 class MyAccView(APIView):
     permission_classes = [permissions.IsAuthenticated]
     # Переопределяя get_queryset тесты отказываются работать, хотя в postman'e все вроде как нормально
+
     def get(self, request):
         user = CustomUser.objects.get(username=request.user.username)
         serializer = UserSerializer(user)
