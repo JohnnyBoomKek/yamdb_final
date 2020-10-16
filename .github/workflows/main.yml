@@ -25,42 +25,42 @@ jobs:
       
     - name: Login to DockerHub
 
-        uses: docker/login-action@v1 
+      uses: docker/login-action@v1 
 
-        with:
+      with:
 
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
 
-          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+        password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
       
     - name: Build and push
 
-        id: docker_build
+      id: docker_build
 
-        uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v2
 
-        with:
+      with:
 
-          context: ./
+        context: ./
 
-          file: ./Dockerfile
+        file: ./Dockerfile
 
-          push: true
+        push: true
 
-          tags: bengotch/simplewhale:latest
+        tags: bengotch/simplewhale:latest
         
     - name: Build and push
 
-        id: docker_build
+      id: docker_build
 
-        uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v2
 
-        with:
+      with:
 
-          context: ./
+        context: ./
 
-          file: ./nginx/Dockerfile
+        file: ./nginx/Dockerfile
 
-          push: true
+        push: true
 
-          tags: bengotch/simplewhale:latest
+        tags: bengotch/simplewhale:latest
