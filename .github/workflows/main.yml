@@ -21,4 +21,4 @@ jobs:
 
     - name: Lint with flake8
       run: |
-        flake8 --ignore=F401,E501
+        flake8 --ignore=F401,E501,F811,F841,F403,F405
