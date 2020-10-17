@@ -1,3 +1,5 @@
+![yamdb_workflow Actions Status](https://github.com/JohnnyBoomKek/yamdb_final/workflows/yamdb_workflow/badge.svg)
+
 # YaMDB API&Docker
 
 This learning project is designed to collect user's reviews. Categories go as follows:

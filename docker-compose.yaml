@@ -19,7 +19,7 @@ services:
     env_file:
       - ./.env
   web:
-    build: .
+    image: johncway/yamdb:latest
     restart: always
     volumes:
       - staticfiles:/code/static
